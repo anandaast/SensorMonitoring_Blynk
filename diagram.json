@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "author": "ANANDA SETIAWATI ABIDIN",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 96, "left": -148.76, "attrs": {} },
+      {
+        "type": "wokwi-lcd1602",
+        "id": "lcd1",
+        "top": -118.4,
+        "left": 15.2,
+        "attrs": { "pins": "i2c" }
+      },
+      { "type": "wokwi-dht22", "id": "dht1", "top": -105.3, "left": -187.8, "attrs": {} },
+      { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 214.4, "left": 116, "attrs": {} }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+      [ "dht1:GND", "esp:GND.2", "black", [ "v67.2", "h105.6" ] ],
+      [ "dht1:SDA", "esp:4", "green", [ "v48", "h134.5", "v182.4" ] ],
+      [ "ldr1:GND", "esp:GND.2", "black", [ "h38.4", "v-0.4" ] ],
+      [ "esp:34", "ldr1:AO", "cyan", [ "h-28.65", "v182.4", "h489.6" ] ],
+      [ "ldr1:VCC", "esp:3V3", "red", [ "h67.2", "v-144", "h-508.8" ] ],
+      [ "lcd1:VCC", "esp:3V3", "red", [ "h-19.2", "v163.3", "h-134.4" ] ],
+      [ "lcd1:GND", "esp:GND.2", "black", [ "h-67.2", "v0", "h-28.8", "v163.2", "h28.8" ] ],
+      [ "lcd1:SDA", "esp:21", "magenta", [ "h-38.4", "v182.6", "h0", "v57.6" ] ],
+      [ "lcd1:SCL", "esp:22", "gold", [ "h-9.6", "v201.9" ] ]
+    ],
+    "dependencies": {}
+  }
